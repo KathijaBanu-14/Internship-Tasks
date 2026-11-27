@@ -1,0 +1,223 @@
+// Quiz Questions
+
+const questions = [
+    {
+        question: "Which language is used to create a webpage?",
+        options: ["Python", "HTML", "Java", "C++"],
+        answer: "HTML"
+    },
+
+    {
+        question: "Which language is used to style a webpage?",
+        options: ["CSS", "HTML", "Python", "C"],
+        answer: "CSS"
+    },
+
+    {
+        question: "Which language makes a webpage interactive?",
+        options: ["Java", "C++", "JavaScript", "SQL"],
+        answer: "JavaScript"
+    },
+
+    {
+        question: "Which HTML tag is used to display an image?",
+        options: ["<p>", "<img>", "<h1>", "<div>"],
+        answer: "<img>"
+    },
+
+    {
+        question: "Which HTML tag is used to create a hyperlink?",
+        options: ["<link>", "<p>", "<a>", "<button>"],
+        answer: "<a>"
+    }
+];
+
+
+// Variables
+
+let currentIndex = 0;
+let score = 0;
+let answered = false;
+
+
+// HTML Elements
+
+let quizContainer = document.querySelector(".quiz-container");
+
+let questionElement;
+let progressElement;
+let optionsDiv;
+let nextButton;
+
+
+// Connect Elements
+
+function connectElements() {
+
+    questionElement = document.getElementById("question");
+
+    progressElement = document.getElementById("progress");
+
+    optionsDiv = document.getElementById("options");
+
+    nextButton = document.getElementById("next-btn");
+
+}
+
+
+// Load Question
+
+function loadQuestion(index) {
+
+    let currentQuestion = questions[index];
+
+    questionElement.textContent = currentQuestion.question;
+
+    progressElement.textContent =
+        "Question " + (index + 1) + " of " + questions.length;
+
+    optionsDiv.innerHTML = "";
+
+    answered = false;
+
+    nextButton.disabled = true;
+
+    currentQuestion.options.forEach(function(option) {
+
+        let button = document.createElement("button");
+
+        button.textContent = option;
+
+        button.classList.add("option");
+
+        button.onclick = function() {
+
+            checkAnswer(button, currentQuestion.answer);
+
+        };
+
+        optionsDiv.appendChild(button);
+
+    });
+
+}
+
+
+// Check Answer
+
+function checkAnswer(selectedButton, correctAnswer) {
+
+    if (answered) {
+        return;
+    }
+
+    answered = true;
+
+    let allButtons = optionsDiv.querySelectorAll(".option");
+
+    allButtons.forEach(function(button) {
+
+        button.disabled = true;
+
+        if (button.textContent === correctAnswer) {
+
+            button.classList.add("correct");
+
+        }
+
+    });
+
+
+    if (selectedButton.textContent === correctAnswer) {
+
+        score++;
+
+    } else {
+
+        selectedButton.classList.add("wrong");
+
+    }
+
+    nextButton.disabled = false;
+
+}
+
+
+// Next Question
+
+function nextQuestion() {
+
+    if (!answered) {
+        return;
+    }
+
+    currentIndex++;
+
+    if (currentIndex < questions.length) {
+
+        loadQuestion(currentIndex);
+
+    } else {
+
+        showResult();
+
+    }
+
+}
+
+
+// Show Result
+
+function showResult() {
+
+    quizContainer.innerHTML = `
+        <h1>Quiz Completed!</h1>
+
+        <p class="result">Your Score: ${score} / ${questions.length}</p>
+
+        <button id="restart-btn">Restart</button>
+    `;
+
+    let restartButton = document.getElementById("restart-btn");
+
+    restartButton.onclick = restartQuiz;
+
+}
+
+
+// Restart Quiz
+
+function restartQuiz() {
+
+    currentIndex = 0;
+
+    score = 0;
+
+    quizContainer.innerHTML = `
+        <h1>Quiz App</h1>
+
+        <p id="progress">Question 1 of 5</p>
+
+        <p id="question"></p>
+
+        <div id="options"></div>
+
+        <button id="next-btn" disabled>Next</button>
+    `;
+
+    connectElements();
+
+    nextButton.onclick = nextQuestion;
+
+    loadQuestion(currentIndex);
+
+}
+
+
+// Start Quiz
+
+connectElements();
+
+nextButton.onclick = nextQuestion;
+
+loadQuestion(currentIndex);
