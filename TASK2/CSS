@@ -1,0 +1,140 @@
+/* Basic Reset */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/* Body */
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: lightblue;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    min-height: 100vh;
+}
+
+
+/* Quiz Container */
+
+.quiz-container {
+    background-color: white;
+    width: 450px;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 0 10px gray;
+    text-align: center;
+}
+
+
+/* Heading */
+
+.quiz-container h1 {
+    color: darkblue;
+    margin-bottom: 25px;
+}
+
+
+/* Progress */
+
+#progress {
+    margin-bottom: 10px;
+    font-size: 16px;
+}
+
+
+/* Question */
+
+#question {
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+
+/* Options */
+
+#options {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+
+/* Option Buttons */
+
+.option {
+    padding: 12px;
+    background-color: white;
+    border: 2px solid lightgray;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+
+/* Correct Answer */
+
+.correct {
+    background-color: green;
+    color: white;
+}
+
+
+/* Wrong Answer */
+
+.wrong {
+    background-color: red;
+    color: white;
+}
+
+
+/* Next Button */
+
+#next-btn {
+    background-color: darkblue;
+    color: white;
+    padding: 12px 25px;
+    margin-top: 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+
+/* Restart Button */
+
+#restart-btn {
+    background-color: darkblue;
+    color: white;
+    padding: 12px 25px;
+    margin-top: 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+
+/* Hover */
+
+.option:hover:not(:disabled) {
+    background-color: lightyellow;
+}
+
+#next-btn:hover:not(:disabled),
+#restart-btn:hover {
+    background-color: blue;
+}
+
+
+/* Disabled Button */
+
+button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
