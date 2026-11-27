@@ -1,94 +1,209 @@
-/* Basic Reset */
 
+/* Basic Reset */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-
 /* Body */
-
 body {
     font-family: Arial, sans-serif;
-    background-color: lightblue;
+    background-color: white;
+}
+
+/* Navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: darkgreen;
+    padding: 20px 30px;
+}
+
+.navbar h2 {
+    color: white;
+}
+
+.navbar ul {
+    display: flex;
+    list-style: none;
+    gap: 25px;
+}
+
+.navbar a {
+    color: white;
+    text-decoration: none;
+}
+
+/* Navbar Hover */
+.navbar a:hover {
+    color: yellow;
+}
+
+/* Hero Section */
+.hero {
+    height: 400px;
+    background-color: beige;
 
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
 
-    min-height: 100vh;
+    text-align: center;
+    gap: 20px;
 }
 
+.hero h1 {
+    font-size: 40px;
+    color: darkgreen;
+}
 
-/* User Card */
+.hero p {
+    font-size: 18px;
+}
 
-.user-card {
+/* Buttons */
+button {
+    background-color: darkgreen;
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    cursor: pointer;
+}
+
+/* Button Hover */
+button:hover {
+    background-color: orange;
+}
+
+/* About Section */
+.about {
+    padding: 50px 20px;
     background-color: white;
-    width: 400px;
-    padding: 30px;
-    border-radius: 15px;
-    box-shadow: 0 0 10px gray;
     text-align: center;
 }
 
+/* About Card */
+.about-card {
+    width: 350px;
+    margin: auto;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px lightgray;
+}
 
-/* User Image */
-
-#user-img {
-    width: 130px;
-    height: 130px;
-    border-radius: 50%;
+/* About Image */
+.about-card img {
+    width: 200px;
+    height: 150px;
     object-fit: cover;
-    border: 4px solid lightblue;
-    margin-bottom: 20px;
+    border-radius: 10px;
+    margin-bottom: 15px;
 }
 
-
-/* User Name */
-
-#user-name {
-    color: darkblue;
-    margin-bottom: 20px;
+/* About Heading */
+.about-card h2 {
+    color: darkgreen;
+    margin-bottom: 15px;
 }
 
-
-/* User Details */
-
-.user-card p {
-    margin: 12px 0;
+/* About Paragraph */
+.about-card p {
     font-size: 16px;
-    color: gray;
+    line-height: 1.6;
 }
 
+/* Social Links */
+.social-links {
+    margin-top: 20px;
+}
 
-/* Button */
+.social-links a {
+    color: darkgreen;
+    text-decoration: none;
+    margin: 5px;
+}
 
-#new-user-btn {
-    background-color: darkblue;
-    color: white;
-    padding: 12px 25px;
-    border: none;
+/* Social Hover */
+.social-links a:hover {
+    color: orange;
+}
+
+/* Products Section */
+.products {
+    background-color: beige;
+    padding: 50px 20px;
+    text-align: center;
+}
+
+.products h2 {
+    color: darkgreen;
+    margin-bottom: 30px;
+}
+
+/* Product Cards Row */
+.product-list {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+/* Product Card */
+.product-card {
+    background-color: white;
+    width: 250px;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px lightgray;
+    transition: 0.3s;
+}
+
+/* Product Image */
+.product-card img {
+    width: 100%;
+    height: 170px;
+    object-fit: cover;
     border-radius: 8px;
+}
+
+/* Product Name */
+.product-card h3 {
+    margin: 15px 0;
+}
+
+/* Product Price */
+.product-card p {
+    font-size: 18px;
+    margin-bottom: 15px;
+}
+
+/* Product Card Hover */
+.product-card:hover {
+    transform: translateY(-5px);
+}
+
+/* Footer */
+.footer {
+    background-color: darkgreen;
+    color: white;
+    text-align: center;
+    padding: 25px;
+}
+
+/* Footer Links */
+.footer-links {
     margin-top: 15px;
-    cursor: pointer;
-    font-size: 16px;
 }
 
-
-/* Button Hover */
-
-#new-user-btn:hover {
-    background-color: blue;
+.footer-links a {
+    color: white;
+    text-decoration: none;
+    margin: 10px;
 }
 
-
-/* Responsive */
-
-@media (max-width: 450px) {
-
-    .user-card {
-        width: 90%;
-    }
-
+/* Footer Hover */
+.footer-links a:hover {
+    color: yellow;
 }
